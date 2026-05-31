@@ -48,13 +48,7 @@ response = requests.post(
 #response is set to summary variable and is printed
 if response.status_code == 200:
     response_dict = response.json()
-    
-    # Notice the [0] before ["text"] - this extracts the text from the list item
     summary = response_dict["output"]["message"]["content"][0]["text"]
-    
-    print(f"==================================================")
-    print(f"Success! Claude Response:")
-    print(f"==================================================")
     print(summary)
 else:
     print(f"❌ Request Failed with Status Code {response.status_code}")
